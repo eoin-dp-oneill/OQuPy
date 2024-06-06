@@ -19,8 +19,8 @@ from scipy.optimize import minimize
 # parameters used in https://arxiv.org/abs/2303.16002
 
 # -- time steps --
-end_time = 2.5
-num_steps = 50
+end_time = 5
+num_steps = 100
 dt = end_time / num_steps
 
 # -- bath --
@@ -142,9 +142,9 @@ def infidandgrad(paras):
     return 1-fidelity.real,(-1.0*gps.reshape((-1)).real).tolist()
 
 # Set upper and lower bounds on control parameters
-x_bound = [-5*np.pi,5*np.pi]
+x_bound = [-5,5]
 y_bound = [0,0] 
-z_bound = [-np.pi,np.pi]
+z_bound = [-1,1]
 
 bounds = np.zeros((num_steps*num_params,2))
 
